@@ -158,6 +158,118 @@ body {
     letter-spacing: 1px;
 }
 
+/* LANDSCAPE GALLERY SECTION */
+.gallery-container {
+    margin: 30px auto 0 auto;
+    max-width: 850px; /* Pantay sa width ng iyong hero text */
+    overflow: hidden;
+    padding: 10px 0;
+    position: relative;
+    /* Soft edges effect */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.gallery-track {
+    display: flex;
+    gap: 12px;
+    /* (220px width + 12px gap) * 14 images */
+    width: calc(232px * 14); 
+    animation: slideLandscape 25s linear infinite;
+}
+
+.gallery-track img {
+    width: 220px;     /* Mas malapad */
+    height: 140px;    /* Mas mababa para maging landscape */
+    border-radius: 8px;
+    
+    /* Image Alignment Fix */
+    object-fit: cover;
+    object-position: center 20%; /* Naka-focus pa rin ng konti sa taas para hindi maputol ang ulo */
+    
+    filter: grayscale(100%);
+    border: 1px solid rgba(77, 163, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hover Effect */
+.gallery-track img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05); /* Swabe lang na paglaki */
+    border-color: #4da3ff;
+    box-shadow: 0 8px 20px rgba(77, 163, 255, 0.3);
+    z-index: 5;
+}
+
+/* Pause when cursor is over the gallery */
+.gallery-track:hover {
+    animation-play-state: paused;
+}
+
+/* Infinite Loop Animation */
+@keyframes slideLandscape {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Move by the total width of the first 7 images + gaps */
+        transform: translateX(calc(-232px * 7));
+    }
+}
+
+/* GLOWING EFFECT FOR HERO DESCRIPTION */
+.hero-description.glow-text {
+    font-size: 1.2rem;
+    color: #4da3ff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    
+    /* The Glow Animation */
+    animation: textPulse 2s infinite alternate ease-in-out;
+    text-shadow: 0 0 8px rgba(77, 163, 255, 0.3);
+}
+
+@keyframes textPulse {
+    from {
+        text-shadow: 0 0 10px rgba(77, 163, 255, 0.5), 
+                     0 0 20px rgba(77, 163, 255, 0.2);
+        transform: scale(1);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(77, 163, 255, 0.8), 
+                     0 0 30px rgba(77, 163, 255, 0.4),
+                     0 0 40px rgba(0, 119, 181, 0.3);
+        transform: scale(1.02); /* Slight breathing effect */
+    }
+}
+
+/* Optional: Add a "Scanline" light effect that passes over the text */
+.glow-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+    transition: none;
+    animation: scan 4s infinite;
+}
+
+@keyframes scan {
+    0% { left: -100%; }
+    20% { left: 150%; }
+    100% { left: 150%; }
+}
+
 /* COMBINED ABOUT & SKILLS SECTION */
 .about-section {
     padding: 100px 10%;
