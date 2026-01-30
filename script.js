@@ -108,6 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 });
 
+
+
 // --- SCROLL REVEAL LOGIC ---
 function reveal() {
     const reveals = document.querySelectorAll(".reveal");
@@ -123,8 +125,10 @@ function reveal() {
     });
 }
 
+
 // Listen for scroll events
 window.addEventListener("scroll", reveal);
 
 // Run once on load in case elements are already in view
 reveal();
+
