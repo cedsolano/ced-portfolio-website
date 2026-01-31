@@ -125,7 +125,6 @@ function reveal() {
     });
 }
 
-
 // Listen for scroll events
 window.addEventListener("scroll", reveal);
 

@@ -294,13 +294,13 @@ body {
     height: 350px;
     object-fit: cover;
     border-radius: 20px;
-    border: 2px solid #4da3ff;
+    border: 2px solid #4e6d8f65;
     box-shadow: 0 0 20px rgba(77, 163, 255, 0.3);
 }
 
 .about-content h2.section-title-left {
     font-size: 2.5rem;
-    color: #4da3ff;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -314,6 +314,7 @@ body {
     color: #8b949e;
     line-height: 1.6;
 }
+
 
 /* SKILLS INTEGRATION */
 .about-skills-wrapper {
@@ -814,4 +815,162 @@ body {
 .edu-item:hover .edu-content {
     background: rgba(77, 163, 255, 0.05);
     transform: translateX(10px); /* Moves slightly right on hover */
+}
+
+/* --- RESPONSIVE MOBILE FIXES --- */
+@media (max-width: 768px) {
+    /* 1. Navbar: Hide links and show a simpler layout */
+    .nav-links {
+        display: none; /* We hide this because it crowds the screen on mobile */
+    }
+    
+    .navbar {
+        padding: 10px 5%;
+    }
+
+    /* 2. Hero Section: Shrink text so it fits */
+    .hero h2 {
+        font-size: 2.2rem !important;
+        padding: 0 10px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    /* 3. Landscape Gallery: Make it slightly smaller for mobile */
+    .gallery-track img {
+        width: 160px;
+        height: 100px;
+    }
+
+    /* 4. About Section: Stack image on top of text */
+    .about-flex {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-image img {
+        width: 100% !important;
+        max-width: 250px;
+        height: auto;
+    }
+
+    .about-content h2.section-title-left {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    /* 5. Skills: Make the grid fit 2 or 3 icons per row */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
+        gap: 10px;
+    }
+
+    /* 6. Projects: Single column so images stay large */
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 5%;
+    }
+
+    .project-card a img {
+        height: 180px;
+    }
+
+    /* 7. Certificates: Stack them vertically */
+    .cert-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+/* Simple Hamburger Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    
+    .nav-links.mobile-active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #0a0f1f;
+        padding: 20px;
+        border-bottom: 2px solid #4da3ff;
+    }
+}
+/* --- MOBILE RESPONSIVENESS (ADD TO THE BOTTOM OF STYLE.CSS) --- */
+@media (max-width: 768px) {
+    /* 1. Hero Content Adjustment */
+    .hero {
+        padding-top: 60px; /* Space para sa navbar */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* 2. HELLO (Little Big) and I'M CEDRIC SOLANO (Stacked) */
+    .hero h2 {
+        font-size: 1.5rem !important; /* Small base for the whole line */
+        line-height: 1.2;
+        display: flex;
+        flex-direction: column; /* Ginagawa nitong magkapatong */
+        gap: 5px;
+    }
+
+    /* Target the "Hello" part only */
+    .hero h2 span.highlight {
+        font-size: 2.8rem !important; /* Eto yung nagpapalaki sa "HELLO" */
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* 3. Subtitle and Description adjustment */
+    .hero-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.5;
+        margin: 15px 0;
+    }
+
+    .hero-description.glow-text {
+        font-size: 0.95rem !important;
+        letter-spacing: 1px;
+    }
+
+    /* 4. Social Icons - prevent them from crowding */
+    .hero .social-links {
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .hero .social-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 0.9rem;
+    }
+
+    /* 5. Gallery scaling for smaller screens */
+    .gallery-container {
+        margin-top: 25px;
+        max-width: 100%;
+    }
+    
+    .gallery-track img {
+        width: 150px;
+        height: 100px;
+    }
 }
