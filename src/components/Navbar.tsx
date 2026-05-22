@@ -1,0 +1,60 @@
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
+import { FaCode, FaBars, FaTimes } from 'react-icons/fa';
+
+const Navbar: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileActive, setMobileActive] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Certificates', href: '#certificates' },
+  ];
+
+  return (
+    <header className={`navbar-header ${scrolled ? 'scrolled glass' : ''}`}>
+      <nav className="navbar container">
+        <div className="logo">
+          <a href="#home">
+            <h1><FaCode className="logo-icon" /> CMS</h1>
+          </a>
+        </div>
+        
+        <ul className={`nav-links ${mobileActive ? 'mobile-active glass' : ''}`}>
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <a href={link.href} onClick={() => setMobileActive(false)}>{link.name}</a>
+            </li>
+          ))}
+          <li>
+            <a href="#contact" className="nav-btn" onClick={() => setMobileActive(false)}>Contact Me</a>
+          </li>
+        </ul>
+
+        <div className="menu-toggle" onClick={() => setMobileActive(!mobileActive)}>
+          {mobileActive ? <FaTimes /> : <FaBars />}
+        </div>
+      </nav>
+    {mobileActive && <div className="drawer-backdrop" onClick={() => setMobileActive(false)}></div>}
+    </header>
+    );
+  }
+
+
+export default Navbar;

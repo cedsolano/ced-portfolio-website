@@ -1,0 +1,166 @@
+.education-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  height: 100%;
+  width: 2px;
+  background: var(--glass-border);
+}
+
+.edu-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 1.8rem;
+  margin-left: 50px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.edu-item:hover {
+  transform: translateX(10px);
+  border-color: var(--primary-color);
+}
+
+.edu-dot {
+  position: absolute;
+  left: -41px;
+  top: 28px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.edu-item:hover .edu-dot {
+  background: var(--primary-color);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.edu-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.edu-content h3 {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.degree {
+  color: var(--text-secondary);
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  margin-bottom: 0.4rem;
+}
+
+.year {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-family: var(--font-secondary);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+/* ==================== MOBILE ==================== */
+@media (max-width: 480px) {
+  .education-timeline::before {
+    left: 12px;
+  }
+  .edu-item {
+    margin-left: 35px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .edu-dot {
+    left: -32px;
+    width: 14px;
+    height: 14px;
+    top: 22px;
+    border-width: 3px;
+  }
+  .edu-tag {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+  .edu-content h3 {
+    font-size: 0.95rem;
+  }
+  .degree {
+    font-size: 0.8rem;
+  }
+  .year {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .education-timeline::before {
+    left: 15px;
+  }
+  .edu-item {
+    margin-left: 40px;
+    padding: 1.5rem;
+  }
+  .edu-dot {
+    left: -35px;
+    width: 16px;
+    height: 16px;
+    top: 25px;
+    border-width: 3px;
+  }
+}
+
+/* Floating Shapes Background */
+.edu-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: -1;
+  opacity: 0.15;
+  animation: float-edu 15s infinite alternate ease-in-out;
+}
+
+.shape-1 {
+  width: 250px; height: 250px;
+  background: var(--primary-color);
+  top: 10%; left: -5%;
+}
+
+.shape-2 {
+  width: 300px; height: 300px;
+  background: var(--accent-color);
+  bottom: 10%; right: -5%;
+  animation-duration: 20s;
+  animation-delay: -5s;
+}
+
+.shape-3 {
+  width: 200px; height: 200px;
+  background: var(--secondary-color);
+  top: 50%; left: 40%;
+  animation-duration: 25s;
+  animation-delay: -10s;
+}
+
+@keyframes float-edu {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  33% { transform: translateY(-40px) translateX(30px) scale(1.1); }
+  66% { transform: translateY(20px) translateX(-20px) scale(0.9); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}

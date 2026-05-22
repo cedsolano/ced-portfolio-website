@@ -1,0 +1,335 @@
+/* ==================== EXPERIENCE TIMELINE ==================== */
+.experience-timeline {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2.5rem 0;
+}
+
+/* Track — faint background line */
+.timeline-track {
+  position: absolute;
+  top: 0;
+  left: 22px;
+  width: 3px;
+  height: 100%;
+  background: rgba(157, 178, 191, 0.08);
+  border-radius: 4px;
+}
+
+/* Progress — animated glowing line that fills on scroll */
+.timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 22px;
+  width: 3px;
+  height: 0%;
+  border-radius: 4px;
+  background: linear-gradient(
+    180deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 50%,
+    var(--secondary-color) 100%
+  );
+  box-shadow:
+    0 0 10px rgba(157, 178, 191, 0.5),
+    0 0 25px rgba(157, 178, 191, 0.2);
+  transition: height 0.15s ease-out;
+  z-index: 2;
+}
+
+/* ==================== TIMELINE ITEM ==================== */
+.exp-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding: 1.8rem 2rem;
+  margin-left: 60px;
+
+  /* Scroll-reveal: start hidden */
+  opacity: 0;
+  transform: translateX(-30px) translateY(20px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+
+.exp-item:nth-child(odd) {
+  transition-delay: 0.05s;
+}
+.exp-item:nth-child(even) {
+  transition-delay: 0.15s;
+}
+
+/* Visible state */
+.exp-item.exp-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.exp-item:hover {
+  transform: translateX(8px);
+  border-color: var(--primary-color);
+}
+
+/* ==================== DOT / NODE ==================== */
+.exp-dot {
+  position: absolute;
+  left: -49px;
+  top: 28px;
+  width: 24px;
+  height: 24px;
+  z-index: 3;
+}
+
+.dot-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid rgba(157, 178, 191, 0.25);
+  transition: all 0.5s ease;
+}
+
+.dot-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.dot-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(157, 178, 191, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Active dot state (triggered on scroll) */
+.dot-active .dot-ring {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 14px rgba(157, 178, 191, 0.5);
+}
+
+.dot-active .dot-core {
+  background: var(--primary-color);
+  box-shadow:
+    0 0 12px rgba(157, 178, 191, 0.7),
+    0 0 30px rgba(157, 178, 191, 0.25);
+}
+
+.dot-active .dot-glow {
+  transform: translate(-50%, -50%) scale(1);
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.4); }
+}
+
+/* Hover enhancement */
+.exp-item:hover .dot-ring {
+  border-color: var(--accent-color);
+  transform: scale(1.15);
+}
+.exp-item:hover .dot-core {
+  background: var(--accent-color);
+  box-shadow: 0 0 14px rgba(221, 230, 237, 0.6);
+}
+
+/* ==================== CONTENT ==================== */
+.exp-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(157, 178, 191, 0.12);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.exp-content h3 {
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.exp-company {
+  color: var(--accent-color);
+  font-size: clamp(0.88rem, 2.5vw, 1rem);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.exp-period {
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-family: var(--font-secondary);
+  font-size: clamp(0.82rem, 2vw, 0.95rem);
+  margin-bottom: 1rem;
+}
+
+/* Bullet points */
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exp-bullets li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.7rem;
+  color: var(--text-secondary);
+  font-size: clamp(0.84rem, 2.2vw, 0.95rem);
+  line-height: 1.7;
+}
+
+.exp-bullets li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ==================== FLOATING SHAPES ==================== */
+.exp-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  z-index: -1;
+  opacity: 0.10;
+  animation: float-exp 15s infinite alternate ease-in-out;
+}
+
+.exp-shape.shape-1 {
+  width: 250px;
+  height: 250px;
+  background: var(--primary-color);
+  top: 10%;
+  left: -5%;
+}
+
+.exp-shape.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent-color);
+  bottom: 10%;
+  right: -5%;
+  animation-duration: 20s;
+  animation-delay: -5s;
+}
+
+.exp-shape.shape-3 {
+  width: 200px;
+  height: 200px;
+  background: var(--secondary-color);
+  top: 50%;
+  left: 40%;
+  animation-duration: 25s;
+  animation-delay: -10s;
+}
+
+@keyframes float-exp {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  33% { transform: translateY(-40px) translateX(30px) scale(1.1); }
+  66% { transform: translateY(20px) translateX(-20px) scale(0.9); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+
+/* ==================== MOBILE (≤480px) ==================== */
+@media (max-width: 480px) {
+  .experience-timeline {
+    padding: 1.5rem 0;
+  }
+  .timeline-track {
+    left: 14px;
+    width: 2px;
+  }
+  .timeline-progress {
+    left: 14px;
+    width: 2px;
+  }
+  .exp-item {
+    margin-left: 38px;
+    padding: 1.2rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .exp-dot {
+    left: -34px;
+    width: 18px;
+    height: 18px;
+    top: 20px;
+  }
+  .dot-core {
+    width: 8px;
+    height: 8px;
+  }
+  .dot-glow {
+    width: 30px;
+    height: 30px;
+  }
+  .exp-tag {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+  .exp-content h3 {
+    font-size: 0.98rem;
+  }
+  .exp-company {
+    font-size: 0.82rem;
+  }
+  .exp-period {
+    font-size: 0.78rem;
+  }
+  .exp-bullets li {
+    font-size: 0.8rem;
+    padding-left: 1.2rem;
+    line-height: 1.65;
+  }
+}
+
+/* ==================== TABLET (481–768px) ==================== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .timeline-track {
+    left: 18px;
+    width: 2px;
+  }
+  .timeline-progress {
+    left: 18px;
+    width: 2px;
+  }
+  .exp-item {
+    margin-left: 48px;
+    padding: 1.5rem 1.3rem;
+  }
+  .exp-dot {
+    left: -40px;
+    width: 20px;
+    height: 20px;
+    top: 25px;
+  }
+  .exp-content h3 {
+    font-size: 1.05rem;
+  }
+  .exp-bullets li {
+    font-size: 0.88rem;
+  }
+}
