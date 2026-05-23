@@ -56,41 +56,59 @@ const Contact: React.FC = () => {
         <span className="section-label">Contact</span>
         <h2 className="section-main-title">Let's Work Together</h2>
       </div>
-      <div className="contact-wrapper">
-        <div className="contact-info glass">
-          <h3>Get In Touch</h3>
-          <p className="contact-description">
-            Feel free to connect with me through the social media below!
-            I'm always open to discussing new opportunities and collaborations.
-          </p>
-          <div className="contact-social-links">
-            <a href="https://facebook.com/cedricmark.solano.3" target="_blank" rel="noreferrer" className="contact-icon fb" title="Facebook">
-              <FaFacebookF />
-            </a>
-            <a href="https://instagram.com/cedsolano_" target="_blank" rel="noreferrer" className="contact-icon ig" title="Instagram">
-              <FaInstagram />
-            </a>
-            <a href="https://github.com/cedsolano" target="_blank" rel="noreferrer" className="contact-icon gh" title="GitHub">
-              <FaGithub />
-            </a>
-            <a href="https://linkedin.com/in/cedric-mark-solano-6309122b9" target="_blank" rel="noreferrer" className="contact-icon li" title="LinkedIn">
-              <FaLinkedinIn />
-            </a>
+      <div className="contact-wrapper-clean">
+        <div className="contact-info-clean">
+          <h2 className="contact-title">Get in touch</h2>
+          
+          <div className="contact-detail">
+            <span className="contact-detail-label">EMAIL:</span>
+            <span className="contact-detail-text">ced.solano22@gmail.com</span>
+          </div>
+
+          <div className="contact-detail">
+            <span className="contact-detail-label">ADDRESS:</span>
+            <span className="contact-detail-text">Commonwealth, Quezon City</span>
+          </div>
+
+          <button className="connect-btn">Let's connect</button>
+
+          <div className="social-section">
+            <span className="social-label">Follow us</span>
+            <div className="contact-social-links-clean">
+              <a href="https://facebook.com/cedricmark.solano.3" target="_blank" rel="noreferrer" className="contact-icon-clean fb" title="Facebook">
+                <FaFacebookF />
+              </a>
+              <a href="https://instagram.com/cedsolano_" target="_blank" rel="noreferrer" className="contact-icon-clean ig" title="Instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://github.com/cedsolano" target="_blank" rel="noreferrer" className="contact-icon-clean gh" title="GitHub">
+                <FaGithub />
+              </a>
+              <a href="https://linkedin.com/in/cedric-mark-solano-6309122b9" target="_blank" rel="noreferrer" className="contact-icon-clean li" title="LinkedIn">
+                <FaLinkedinIn />
+              </a>
+            </div>
           </div>
         </div>
 
-        <form className="contact-form glass" onSubmit={onSubmit}>
-          <h3>Send a Message</h3>
-          <div className="input-group">
-            <input type="text" name="name" placeholder="Your Name" required />
+        <form className="contact-form-clean" onSubmit={onSubmit}>
+          <div className="form-row">
+            <div className="input-group-clean">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="Your full name" required />
+            </div>
+            <div className="input-group-clean">
+              <label>Email address</label>
+              <input type="email" name="email" placeholder="Your email address" required />
+            </div>
           </div>
-          <div className="input-group">
-            <input type="email" name="email" placeholder="Your Email" required />
+          
+          <div className="input-group-clean">
+            <label>Message</label>
+            <textarea name="message" placeholder="Write something..." rows={6} required></textarea>
           </div>
-          <div className="input-group">
-            <textarea name="message" placeholder="Your Message" rows={5} required></textarea>
-          </div>
-          <button type="submit" className="submit-btn">Send Message</button>
+          
+          <button type="submit" className="submit-btn-clean">Send Message</button>
           {status !== "idle" && <span className={`form-result ${status}`}>{message}</span>}
         </form>
       </div>

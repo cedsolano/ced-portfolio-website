@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { FaTimes, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Projects.css';
 
+interface Tech {
+  name: string;
+  icon: string;
+}
+
+interface Project {
+  id: number;
+  title: string;
+  role: string;
+  description: string;
+  image: string;
+  link: string;
+  tech: Tech[];
+}
+
 const Projects: React.FC = () => {
-  const projects = [
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const closeModal = () => setSelectedProject(null);
+
+  const projects: Project[] = [
     {
       id: 1,
       title: 'BorrowEase - Library Management System',
@@ -96,34 +122,102 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="section container">
-      <div className="section-header">
+      {/* ── Premium 3D Floating Glass Spheres ── */}
+      <div className="projects-3d-background">
+        <div className="sphere sphere-1"></div>
+        <div className="sphere sphere-2"></div>
+        <div className="sphere sphere-3"></div>
+        <div className="sphere sphere-4"></div>
+        <div className="sphere sphere-5"></div>
+        <div className="sphere sphere-6"></div>
+        <div className="sphere sphere-7"></div>
+        <div className="sphere sphere-8"></div>
+        <div className="sphere sphere-9"></div>
+        <div className="sphere sphere-10"></div>
+        <div className="sphere sphere-11"></div>
+        <div className="sphere sphere-12"></div>
+      </div>
+      <div className="section-header" style={{ textAlign: 'center' }}>
         <span className="section-label">Portfolio</span>
         <h2 className="section-main-title">Featured Projects</h2>
+        <p className="section-description" style={{ margin: '1rem auto 0' }}>
+          Here are some of my projects that show my skills and expertise in creating functional, modern, and user-centric applications.
+        </p>
       </div>
-      <div className="projects-grid">
-        {projects.map((proj) => (
-          <div key={proj.id} className="project-card glass">
-            <a href={proj.link} target="_blank" rel="noreferrer" className="project-img-wrapper">
-              <img src={proj.image} alt={proj.title} className="project-img" />
-              <div className="project-overlay">
-                <span>View Project</span>
+
+      <div className="projects-carousel">
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          loop={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 150,
+            modifier: 1.5,
+            slideShadows: true,
+          }}
+          pagination={{ el: '.swiper-pagination', clickable: true }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          className="swiper_container"
+        >
+          {projects.map((proj) => (
+            <SwiperSlide key={proj.id} onClick={() => setSelectedProject(proj)}>
+              <div className="carousel-item glass">
+                <img src={proj.image} alt={proj.title} />
+                <div className="carousel-title-overlay">
+                  <h3>{proj.title}</h3>
+                  <p>Click for details</p>
+                </div>
               </div>
-            </a>
-            <div className="project-info">
-              <h3>{proj.title}</h3>
-              <span className="role-tag">{proj.role}</span>
-              <p>{proj.description}</p>
+            </SwiperSlide>
+          ))}
+
+          <div className="slider-controler">
+            <div className="swiper-button-prev slider-arrow">
+              <FaChevronLeft />
+            </div>
+            <div className="swiper-button-next slider-arrow">
+              <FaChevronRight />
+            </div>
+            <div className="swiper-pagination"></div>
+          </div>
+        </Swiper>
+      </div>
+
+      {selectedProject && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content glass" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              <FaTimes />
+            </button>
+            <div className="modal-img-wrapper">
+              <img src={selectedProject.image} alt={selectedProject.title} className="modal-img" />
+            </div>
+            <div className="modal-info">
+              <h2>{selectedProject.title}</h2>
+              <span className="role-tag">{selectedProject.role}</span>
+              <p>{selectedProject.description}</p>
               <div className="tech-stack">
-                {proj.tech.map((t) => (
+                {selectedProject.tech.map((t) => (
                   <span key={t.name} className="tech-pill">
                     {t.icon && <i className={t.icon}></i>} {t.name}
                   </span>
                 ))}
               </div>
+              <a href={selectedProject.link} target="_blank" rel="noreferrer" className="modal-btn">
+                View Project <FaExternalLinkAlt style={{ marginLeft: '8px' }} />
+              </a>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </section>
   );
 };

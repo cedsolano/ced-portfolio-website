@@ -164,7 +164,7 @@
 .exp-content h3 {
   font-size: clamp(1.05rem, 3vw, 1.35rem);
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -209,49 +209,179 @@
   line-height: 1.7;
 }
 
-/* ==================== FLOATING SHAPES ==================== */
-.exp-shape {
+/* ==================== 3D ANIMATED SMOKE & FOG BACKGROUND ==================== */
+.experience-smoke-background {
+  position: absolute;
+  inset: -150px;
+  z-index: -1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.smoke-puff {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
-  z-index: -1;
-  opacity: 0.10;
-  animation: float-exp 15s infinite alternate ease-in-out;
+  filter: blur(90px);
+  -webkit-filter: blur(90px);
+  opacity: 0.8;
+  mix-blend-mode: screen; /* Blends beautiful smoke textures together */
 }
 
-.exp-shape.shape-1 {
-  width: 250px;
-  height: 250px;
-  background: var(--primary-color);
-  top: 10%;
-  left: -5%;
+/* Smoke puff 1: Cyan-gray smoke rising and morphing on the left */
+.smoke-puff-1 {
+  width: 550px;
+  height: 550px;
+  top: 5%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(157, 178, 191, 0.12) 0%, rgba(99, 102, 241, 0.03) 50%, transparent 100%);
+  border-radius: 43% 57% 60% 40% / 45% 48% 62% 55%;
+  animation: smokeSwirl1 28s ease-in-out infinite alternate;
 }
 
-.exp-shape.shape-2 {
-  width: 300px;
-  height: 300px;
-  background: var(--accent-color);
+/* Smoke puff 2: Indigo-purple smoke flowing near the center-right */
+.smoke-puff-2 {
+  width: 600px;
+  height: 600px;
+  top: 30%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.09) 0%, rgba(168, 85, 247, 0.03) 50%, transparent 100%);
+  border-radius: 52% 48% 40% 60% / 55% 45% 65% 35%;
+  animation: smokeSwirl2 32s ease-in-out infinite alternate;
+}
+
+/* Smoke puff 3: Deep slate-blue smoke morphing near the bottom-left */
+.smoke-puff-3 {
+  width: 500px;
+  height: 500px;
   bottom: 10%;
-  right: -5%;
-  animation-duration: 20s;
-  animation-delay: -5s;
+  left: -5%;
+  background: radial-gradient(circle, rgba(157, 178, 191, 0.1) 0%, rgba(99, 102, 241, 0.04) 50%, transparent 100%);
+  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  animation: smokeSwirl3 26s ease-in-out infinite alternate;
 }
 
-.exp-shape.shape-3 {
-  width: 200px;
-  height: 200px;
-  background: var(--secondary-color);
-  top: 50%;
-  left: 40%;
-  animation-duration: 25s;
-  animation-delay: -10s;
+/* Smoke puff 4: Soft white smoke swirling at the top-center */
+.smoke-puff-4 {
+  width: 450px;
+  height: 450px;
+  top: -5%;
+  left: 25%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(157, 178, 191, 0.02) 60%, transparent 100%);
+  border-radius: 60% 40% 45% 55% / 40% 55% 45% 60%;
+  animation: smokeSwirl4 22s ease-in-out infinite alternate;
 }
 
-@keyframes float-exp {
-  0% { transform: translateY(0) translateX(0) scale(1); }
-  33% { transform: translateY(-40px) translateX(30px) scale(1.1); }
-  66% { transform: translateY(20px) translateX(-20px) scale(0.9); }
-  100% { transform: translateY(0) translateX(0) scale(1); }
+/* Smoke puff 5: Glowing accent smoke flowing near the bottom-right */
+.smoke-puff-5 {
+  width: 520px;
+  height: 520px;
+  bottom: 5%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.07) 0%, rgba(99, 102, 241, 0.02) 55%, transparent 100%);
+  border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%;
+  animation: smokeSwirl5 30s ease-in-out infinite alternate;
+}
+
+/* Light Mode Overrides: adjust blend modes and opacities so smoke is beautifully elegant and soft */
+[data-theme="light"] .smoke-puff {
+  mix-blend-mode: multiply; /* Perfect blending for light backgrounds */
+  opacity: 0.6;
+}
+
+[data-theme="light"] .smoke-puff-1 {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, rgba(99, 102, 241, 0.02) 50%, transparent 100%);
+}
+
+[data-theme="light"] .smoke-puff-2 {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, rgba(0, 0, 0, 0.01) 50%, transparent 100%);
+}
+
+[data-theme="light"] .smoke-puff-3 {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, rgba(99, 102, 241, 0.02) 50%, transparent 100%);
+}
+
+[data-theme="light"] .smoke-puff-4 {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.01) 60%, transparent 100%);
+}
+
+[data-theme="light"] .smoke-puff-5 {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, rgba(0, 0, 0, 0.01) 55%, transparent 100%);
+}
+
+/* 3D Smoke Swirling and Morphing (Border Radius changes shape dynamically to look organic) */
+@keyframes smokeSwirl1 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 43% 57% 60% 40% / 45% 48% 62% 55%;
+  }
+  50% {
+    transform: translate(80px, 40px) scale(1.15) rotate(90deg);
+    border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+  }
+  100% {
+    transform: translate(-30px, 80px) scale(0.9) rotate(180deg);
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  }
+}
+
+@keyframes smokeSwirl2 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 52% 48% 40% 60% / 55% 45% 65% 35%;
+  }
+  50% {
+    transform: translate(-60px, 80px) scale(0.85) rotate(-120deg);
+    border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  }
+  100% {
+    transform: translate(40px, -40px) scale(1.1) rotate(-240deg);
+    border-radius: 60% 40% 45% 55% / 45% 55% 35% 65%;
+  }
+}
+
+@keyframes smokeSwirl3 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  }
+  50% {
+    transform: translate(50px, -50px) scale(1.2) rotate(45deg);
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  }
+  100% {
+    transform: translate(-50px, 30px) scale(0.9) rotate(90deg);
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+}
+
+@keyframes smokeSwirl4 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 60% 40% 45% 55% / 40% 55% 45% 60%;
+  }
+  50% {
+    transform: translate(-40px, 50px) scale(0.9) rotate(180deg);
+    border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%;
+  }
+  100% {
+    transform: translate(50px, -30px) scale(1.15) rotate(360deg);
+    border-radius: 55% 45% 55% 45% / 45% 55% 45% 55%;
+  }
+}
+
+@keyframes smokeSwirl5 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%;
+  }
+  50% {
+    transform: translate(60px, -80px) scale(1.1) rotate(-60deg);
+    border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%;
+  }
+  100% {
+    transform: translate(-40px, 40px) scale(0.95) rotate(-180deg);
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
 }
 
 /* ==================== MOBILE (≤480px) ==================== */

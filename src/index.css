@@ -1,28 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  /* ── Slate Blue & Steel Gray Palette ── */
-  --bg-color: #0f172a;
-  /* Deep dark navy/slate base */
-  --primary-color: #9db2bf;
-  /* Light steel/dusty blue */
-  --secondary-color: #526d82;
-  /* Medium slate blue */
-  --accent-color: #dde6ed;
-  /* Pale ice blue / light highlight */
-  --text-primary: #ffffff; /* changed to white */
-  /* High-visibility pale ice blue */
-  --text-secondary: #ffffff; /* changed to white */
-  /* High-visibility dusty blue-gray */
+  /* ── Black & White Palette (Dark Mode Default) ── */
+  --bg-color: #000000;
+  --primary-color: #ffffff;
+  --secondary-color: #888888;
+  --accent-color: #aaaaaa;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
 
-  --glass-bg: rgba(39, 55, 77, 0.45);
-  /* Dark slate navy #27374D overlay */
-  --glass-border: rgba(157, 178, 191, 0.22);
-  /* Light steel blue #9DB2BF border */
-  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 
-  --font-main: 'Inter', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
+  --font-main: 'Inter', -apple-system, sans-serif;
+  --font-secondary: 'Space Grotesk', 'Inter', sans-serif;
+  --font-cursive: 'Dancing Script', cursive;
+}
+
+[data-theme="light"] {
+  /* ── White & Black Palette (Light Mode) ── */
+  --bg-color: #ffffff;
+  --primary-color: #000000;
+  --secondary-color: #666666;
+  --accent-color: #333333;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -196,9 +203,9 @@ section.reveal-active {
   text-shadow: 0 0 18px rgba(157, 178, 191, 0.4);
 }
 
-/* ── New Left-Aligned Section Headers ── */
+/* ── Section Headers ── */
 .section-header {
-  text-align: left;
+  text-align: center;
   margin-bottom: 2.5rem;
   width: 100%;
 }
@@ -225,6 +232,15 @@ section.reveal-active {
 .section-main-title span {
   color: var(--accent-color);
   text-shadow: 0 0 18px rgba(221, 230, 237, 0.4);
+}
+
+.section-description {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: var(--text-secondary);
+  margin-top: 1rem;
+  max-width: 650px;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 /* Micro-animations */

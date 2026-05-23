@@ -104,9 +104,14 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" className="section container" style={{ position: 'relative' }}>
-      <div className="exp-shape shape-1"></div>
-      <div className="exp-shape shape-2"></div>
-      <div className="exp-shape shape-3"></div>
+      {/* ── Premium 3D Animated Smoke & Fog Background ── */}
+      <div className="experience-smoke-background">
+        <div className="smoke-puff smoke-puff-1"></div>
+        <div className="smoke-puff smoke-puff-2"></div>
+        <div className="smoke-puff smoke-puff-3"></div>
+        <div className="smoke-puff smoke-puff-4"></div>
+        <div className="smoke-puff smoke-puff-5"></div>
+      </div>
 
       <div className="section-header">
         <span className="section-label">Timeline</span>
