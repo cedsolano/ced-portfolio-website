@@ -39,6 +39,11 @@
   object-fit: contain;
 }
 
+.cert-info {
+  flex: 1;
+  min-width: 0;
+}
+
 .cert-info h3 {
   font-size: clamp(0.85rem, 2.5vw, 1.1rem);
   margin-bottom: 0.4rem;
@@ -75,7 +80,7 @@
 /* ==================== MOBILE ==================== */
 @media (max-width: 768px) {
   .cert-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1rem;
   }
   .cert-card {
@@ -88,6 +93,12 @@
     height: 55px;
     padding: 6px;
     border-radius: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
   }
 }
 

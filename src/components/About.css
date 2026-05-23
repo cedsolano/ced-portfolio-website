@@ -295,10 +295,6 @@
     gap: 3rem;
   }
   
-  .about-right {
-    order: -1; /* Move image to top on mobile */
-  }
-  
   .about-portrait {
     max-width: 400px;
   }

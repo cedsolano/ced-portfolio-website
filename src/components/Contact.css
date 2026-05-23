@@ -1,5 +1,17 @@
 #contact {
-  padding: 80px 0;
+  padding: 80px 2rem;
+}
+
+@media (max-width: 768px) {
+  #contact {
+    padding: 60px 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact {
+    padding: 50px 1rem;
+  }
 }
 
 .contact-wrapper-clean {
@@ -213,16 +225,59 @@
 @media (max-width: 900px) {
   .contact-wrapper-clean {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+  }
+  .contact-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  .connect-btn {
+    margin: 1rem 0 2rem;
   }
 }
 
 @media (max-width: 600px) {
+  .contact-wrapper-clean {
+    gap: 2rem;
+  }
   .form-row {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
   .contact-title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-detail-text {
+    font-size: 1rem;
+  }
+  .connect-btn {
+    margin: 0.75rem 0 1.5rem;
+    padding: 8px 20px;
+    font-size: 0.88rem;
+  }
+  .input-group-clean label {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  .input-group-clean input,
+  .input-group-clean textarea {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+  .submit-btn-clean {
+    padding: 0.9rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-title {
+    font-size: 1.55rem;
+  }
+  .contact-detail-text {
+    font-size: 0.9rem;
   }
 }
