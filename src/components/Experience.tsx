@@ -53,7 +53,10 @@ const experiences: ExperienceItem[] = [
     company: 'Polytechnic University of the Philippines',
     location: 'Quezon City',
     period: 'September 2022 – October 2026',
-    bullets: [],
+    bullets: [
+      'Hello World! 👋🏻',
+      'Wrote my first line of code'
+    ],
   },
 ];
 
