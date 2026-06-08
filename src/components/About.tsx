@@ -10,7 +10,6 @@ const About: React.FC = () => {
         { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
         { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
         { name: 'React', icon: 'devicon-react-original colored' },
-        { name: 'Next.js', icon: 'devicon-nextjs-plain colored' },
         { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain colored' },
         { name: 'Vite', icon: 'devicon-vitejs-plain colored' },
       ],
@@ -19,11 +18,9 @@ const About: React.FC = () => {
       category: 'Backend',
       icon: '⚙️',
       skills: [
-        { name: 'PHP', icon: 'devicon-php-plain colored' },
-        { name: 'Laravel', icon: 'devicon-laravel-original colored' },
         { name: 'Python', icon: 'devicon-python-plain colored' },
         { name: 'C', icon: 'devicon-c-plain colored' },
-        { name: 'Node.js', icon: 'devicon-nodejs-plain colored' },
+        { name: 'Next.js', icon: 'devicon-nextjs-plain colored' },
       ],
     },
     {
@@ -31,7 +28,6 @@ const About: React.FC = () => {
       icon: '🗄️',
       skills: [
         { name: 'MySQL', icon: 'devicon-mysql-plain colored' },
-        { name: 'MSSQL', icon: 'devicon-microsoftsqlserver-plain colored' },
         { name: 'SQLite', icon: 'devicon-sqlite-plain colored' },
       ],
     },
@@ -89,6 +85,7 @@ const About: React.FC = () => {
         
         {/* Left Column: Text, Skills, Experience */}
         <div className="about-left">
+          <span className="section-label" style={{ display: 'block', marginBottom: '0.5rem' }}>About Me</span>
           <h2 className="about-heading">Meet Cedric</h2>
           <p className="about-description">
             I am a fourth-year graduating Information Technology student and an aspiring Quality Assurance professional and Front-End Developer based in Quezon City. I specialize in system validation, frontend development, and user-centered problem-solving, combining technical expertise with a strong commitment to software quality and usability. Throughout my academic and internship experiences, I have worked on various projects involving the development of modern, responsive web applications, software testing, and system improvement initiatives. I am passionate about creating intuitive digital experiences, identifying areas for enhancement, and contributing to the delivery of reliable, high-quality software solutions.

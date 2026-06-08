@@ -62,8 +62,6 @@ const Projects: React.FC = () => {
       image: '/pic/finance-management.png',
       link: 'https://github.com/HydroX04/exchange-system',
       tech: [
-        { name: 'Laravel', icon: 'devicon-laravel-original' },
-        { name: 'PHP', icon: 'devicon-php-plain' },
         { name: 'SQLite', icon: 'devicon-sqlite-plain' },
       ],
     },
@@ -77,7 +75,6 @@ const Projects: React.FC = () => {
       tech: [
         { name: 'ReactJS', icon: 'devicon-react-original' },
         { name: 'FastAPI', icon: 'devicon-python-plain' },
-        { name: 'MS SQL', icon: 'devicon-microsoftsqlserver-plain' },
       ],
     },
     {
@@ -103,7 +100,6 @@ const Projects: React.FC = () => {
       tech: [
         { name: 'C#', icon: 'devicon-csharp-plain' },
         { name: 'ASP.NET MVC', icon: '' },
-        { name: 'MSSQL', icon: 'devicon-microsoftsqlserver-plain' },
       ],
     },
     {
