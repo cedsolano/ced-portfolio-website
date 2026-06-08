@@ -2,6 +2,10 @@
   padding: 80px 2rem;
 }
 
+#contact::before {
+  border-top: none !important;
+}
+
 @media (max-width: 768px) {
   #contact {
     padding: 60px 1.5rem;
@@ -123,7 +127,23 @@
 .contact-form-clean {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.8rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.contact-form-clean:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .contact-form-clean:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .form-row {
@@ -166,11 +186,13 @@
   outline: none;
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="light"] .input-group-clean input:focus,
 [data-theme="light"] .input-group-clean textarea:focus {
   background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .input-group-clean textarea {
@@ -221,11 +243,99 @@
   color: #ef4444;
 }
 
+/* SUCCESS CARD */
+.contact-success-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(10px);
+  animation: fadeInCard 0.5s ease-out forwards;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.contact-success-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .contact-success-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon {
+  font-size: 4.5rem;
+  color: var(--text-primary);
+  background: var(--glass-border);
+  border-radius: 50%;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.contact-success-card h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  font-family: var(--font-secondary);
+}
+
+.contact-success-card p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.send-another-btn {
+  background: var(--text-primary);
+  color: var(--bg-color);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-another-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .send-another-btn:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {
   .contact-wrapper-clean {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+  .contact-form-clean {
+    padding: 2.5rem 2rem;
   }
   .contact-title {
     font-size: 2.2rem;
@@ -239,6 +349,11 @@
 @media (max-width: 600px) {
   .contact-wrapper-clean {
     gap: 2rem;
+  }
+  .contact-form-clean {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    gap: 1.5rem;
   }
   .form-row {
     grid-template-columns: 1fr;

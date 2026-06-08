@@ -1,0 +1,111 @@
+.marquee-banner {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+  padding: 4px 0;
+}
+
+.marquee-track {
+  width: 100%;
+  overflow: hidden;
+  padding: 6px 0;
+  position: relative;
+}
+
+/* Fade edges */
+.marquee-track::before,
+.marquee-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-track::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-color, #0a0a0f), transparent);
+}
+
+.marquee-track::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-color, #0a0a0f), transparent);
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.marquee-left .marquee-content {
+  animation: marqueeLeft 32s linear infinite;
+}
+
+.marquee-right .marquee-content {
+  animation: marqueeRight 28s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.16);
+  padding: 0 10px;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.marquee-item:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.marquee-dot {
+  color: var(--primary-color, #7c9cbf);
+  opacity: 0.5;
+  margin-left: 4px;
+}
+
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Light mode */
+[data-theme="light"] .marquee-banner {
+  background: rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="light"] .marquee-item {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .marquee-item:hover {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] .marquee-track::before {
+  background: linear-gradient(to right, var(--bg-color, #f8f9fa), transparent);
+}
+
+[data-theme="light"] .marquee-track::after {
+  background: linear-gradient(to left, var(--bg-color, #f8f9fa), transparent);
+}

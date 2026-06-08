@@ -16,6 +16,11 @@
   --font-main: 'Inter', -apple-system, sans-serif;
   --font-secondary: 'Space Grotesk', 'Inter', sans-serif;
   --font-cursive: 'Dancing Script', cursive;
+
+  /* ── Wave Colors (dark mode: white over black = gray depth) ── */
+  --wave-1: rgba(255, 255, 255, 0.18);
+  --wave-2: rgba(255, 255, 255, 0.10);
+  --wave-3: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="light"] {
@@ -30,6 +35,11 @@
   --glass-bg: rgba(0, 0, 0, 0.03);
   --glass-border: rgba(0, 0, 0, 0.1);
   --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  /* ── Wave Colors (light mode: black over white = gray depth) ── */
+  --wave-1: rgba(0, 0, 0, 0.15);
+  --wave-2: rgba(0, 0, 0, 0.09);
+  --wave-3: rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -172,8 +182,8 @@ section:nth-of-type(even)::before {
   height: 100%;
   background: rgba(157, 178, 191, 0.04);
   z-index: -1;
-  border-top: 1px solid var(--glass-border);
-  border-bottom: 1px solid var(--glass-border);
+  border-top: none;
+  border-bottom: none;
 }
 
 /* Global section scroll reveal animation */

@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         <h1 className="hero-heading">
           Hello, I'm <br /> Cedric Solano
         </h1>
-        
+
         <p className="hero-description">
           A fourth-year BS Information Technology student at PUP Quezon City, eager to learn <br className="hidden-mobile" />
           while building reliable systems and ensuring software quality.
