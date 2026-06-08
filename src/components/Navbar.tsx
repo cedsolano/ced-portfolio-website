@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { FaCode, FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -47,21 +47,22 @@ const Navbar: React.FC = () => {
         <div className="navbar-left">
           <div className="logo">
             <a href="#home">
-              <h1><FaCode className="logo-icon" /> CMS</h1>
+              <h1>&lt;cms/&gt;</h1>
             </a>
           </div>
-          
-          <ul className={`nav-links ${mobileActive ? 'mobile-active glass' : ''}`}>
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a href={link.href} onClick={() => setMobileActive(false)}>{link.name}</a>
-              </li>
-            ))}
-            <li className="mobile-only">
-              <a href="#contact" className="nav-btn" onClick={() => setMobileActive(false)}>Contact Me</a>
-            </li>
-          </ul>
+
         </div>
+
+        <ul className={`nav-links ${mobileActive ? 'mobile-active glass' : ''}`}>
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <a href={link.href} onClick={() => setMobileActive(false)}>{link.name}</a>
+            </li>
+          ))}
+          <li className="mobile-only">
+            <a href="#contact" className="nav-btn" onClick={() => setMobileActive(false)}>Contact Me</a>
+          </li>
+        </ul>
 
         <div className="navbar-right">
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">

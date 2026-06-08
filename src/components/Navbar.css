@@ -25,13 +25,15 @@
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  flex: 1;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .logo a {
