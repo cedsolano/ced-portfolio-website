@@ -1,20 +1,44 @@
 #contact {
-  padding: 80px 2rem;
+  padding: 220px 2rem 80px 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 #contact::before {
   border-top: none !important;
 }
 
+.contact-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact-wave svg {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
 @media (max-width: 768px) {
   #contact {
-    padding: 60px 1.5rem;
+    padding: 140px 1.5rem 60px 1.5rem;
+  }
+  .contact-wave svg {
+    height: 120px;
   }
 }
 
 @media (max-width: 480px) {
   #contact {
-    padding: 50px 1rem;
+    padding: 110px 1rem 50px 1rem;
+  }
+  .contact-wave svg {
+    height: 80px;
   }
 }
 
@@ -59,6 +83,8 @@
   font-size: 1.1rem;
   color: var(--text-primary);
   font-weight: 400;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .connect-btn {
@@ -304,7 +330,6 @@
   line-height: 1.5;
   width: 100%;
   max-width: 100%;
-  white-space: nowrap;
 }
 
 .send-another-btn {
