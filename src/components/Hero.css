@@ -134,34 +134,36 @@
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
-    padding: 130px 0 70px 0;
+    padding: 125px 0 65px 0;
   }
 
   .hero-heading {
-    font-size: clamp(1.75rem, 6.2vw, 3rem);
+    font-size: clamp(1.65rem, 6vw, 2.8rem);
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 115px 0 60px 0;
+    padding: 110px 0 55px 0;
   }
 
   .hero-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    margin-bottom: 1.25rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.15rem;
+    line-height: 1.5;
   }
 
   .hero-heading {
-    font-size: clamp(1.45rem, 6.2vw, 1.95rem);
-    line-height: 1.18;
-    margin-bottom: 1.5rem;
+    font-size: clamp(1.32rem, 5.7vw, 1.85rem);
+    line-height: 1.22;
+    margin-bottom: 1.35rem;
   }
 
   .hero-description {
-    font-size: 0.98rem;
-    margin-bottom: 2rem;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 1.85rem;
   }
 
   .hero-buttons {
@@ -170,7 +172,8 @@
   }
 
   .hero-btn {
-    padding: 13px 22px;
-    font-size: 0.9rem;
+    flex: 1;
+    padding: 13px 18px;
+    font-size: 0.88rem;
   }
 }

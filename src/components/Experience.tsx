@@ -194,8 +194,8 @@ const Experience: React.FC = () => {
           <h2 className="exp-main-heading">Experience</h2>
         </div>
 
-        <div className="exp-interactive-grid">
-          {/* Left Column: Clickable Line + Company Selector */}
+        {/* DESKTOP VIEW: Interactive Left Line Rail + Right Detail Panel */}
+        <div className="exp-interactive-grid exp-desktop-only">
           <nav className="exp-nav-rail" aria-label="Experience timeline navigation">
             {experiences.map((exp, idx) => {
               const isActive = idx === activeIndex;
@@ -225,7 +225,6 @@ const Experience: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Column: Active Experience Content */}
           <div className="exp-detail-panel" key={activeIndex}>
             <div
               className="exp-scrollable-description"
@@ -255,7 +254,6 @@ const Experience: React.FC = () => {
                 ))}
               </div>
 
-              {/* Scrollable Sub-Experience (e.g. Internship under Octal Philippines) */}
               {activeExp.subExperience && (
                 <div ref={internshipRef} className="exp-subrole-section">
                   <div className="exp-subrole-divider">
@@ -298,6 +296,77 @@ const Experience: React.FC = () => {
               </div>
             )}
           </div>
+        </div>
+
+        {/* MOBILE VIEW: Clean Vertically Scrollable List (No Line Navigation Rail) */}
+        <div className="exp-mobile-list exp-mobile-only">
+          {experiences.map((exp, idx) => (
+            <article key={idx} className="exp-mobile-card">
+              <span className="exp-detail-period">{exp.period}</span>
+              <h3 className="exp-detail-role">{exp.role}</h3>
+              <p className="exp-detail-company">{exp.company}</p>
+
+              {exp.projectsList && exp.projectsList.length > 0 && (
+                <div className="exp-projects-box">
+                  <span className="exp-projects-label">{exp.projectsLabel || 'Projects:'}</span>
+                  <ul className="exp-projects-list">
+                    {exp.projectsList.map((proj, pIdx) => (
+                      <li key={pIdx}>{proj}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="exp-detail-paragraphs">
+                {exp.paragraphs.map((para, i) => (
+                  <p key={i} className="exp-detail-paragraph">
+                    {para}
+                  </p>
+                ))}
+              </div>
+
+              {exp.subExperience && (
+                <div className="exp-subrole-section">
+                  <div className="exp-subrole-divider">
+                    <span className="exp-subrole-line" />
+                    <span className="exp-subrole-badge">{exp.subExperience.title}</span>
+                  </div>
+
+                  <span className="exp-detail-period">{exp.subExperience.period}</span>
+                  <h4 className="exp-subrole-heading">{exp.subExperience.title}</h4>
+
+                  {exp.subExperience.projectsList && (
+                    <div className="exp-projects-box">
+                      <span className="exp-projects-label">Project:</span>
+                      <ul className="exp-projects-list">
+                        {exp.subExperience.projectsList.map((proj, pIdx) => (
+                          <li key={pIdx}>{proj}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="exp-detail-paragraphs">
+                    {exp.subExperience.paragraphs.map((para, i) => (
+                      <p key={i} className="exp-detail-paragraph">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {exp.tags.length > 0 && (
+                <div className="exp-detail-tags">
+                  {exp.tags.map((tag, i) => (
+                    <span key={i} className="exp-tag-pill">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))}
         </div>
       </div>
     </section>
