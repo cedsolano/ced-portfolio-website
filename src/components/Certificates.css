@@ -46,6 +46,8 @@
 
 .cert-info h3 {
   font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  font-weight: 500;
+  font-family: var(--font-main);
   margin-bottom: 0.4rem;
   color: var(--text-primary);
   line-height: 1.4;

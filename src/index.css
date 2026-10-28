@@ -1,21 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
   /* ── Black & White Palette (Dark Mode Default) ── */
-  --bg-color: #000000;
+  --bg-color: #0a0a0a;
   --primary-color: #ffffff;
   --secondary-color: #888888;
   --accent-color: #aaaaaa;
   --text-primary: #ffffff;
   --text-secondary: #aaaaaa;
+  --brand-green: #2ea86f;
 
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.15);
   --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 
-  --font-main: 'Inter', -apple-system, sans-serif;
-  --font-secondary: 'Space Grotesk', 'Inter', sans-serif;
-  --font-cursive: 'Dancing Script', cursive;
+  /* Strictly 2 Fonts System-wide: Inter + JetBrains Mono */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-cursive: 'JetBrains Mono', monospace;
 
   /* ── Wave Colors (dark mode: white over black = gray depth) ── */
   --wave-1: rgba(255, 255, 255, 0.18);
@@ -24,16 +27,17 @@
 }
 
 [data-theme="light"] {
-  /* ── White & Black Palette (Light Mode) ── */
-  --bg-color: #ffffff;
-  --primary-color: #000000;
+  /* ── Clean Minimalist Off-White Palette (Light Mode) ── */
+  --bg-color: #fafaf7;
+  --primary-color: #141413;
   --secondary-color: #666666;
   --accent-color: #333333;
-  --text-primary: #000000;
-  --text-secondary: #555555;
+  --text-primary: #141413;
+  --text-secondary: #6b6b66;
+  --brand-green: #1d6b47;
 
   --glass-bg: rgba(0, 0, 0, 0.03);
-  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-border: rgba(0, 0, 0, 0.08);
   --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   /* ── Wave Colors (light mode: black over white = gray depth) ── */
@@ -201,16 +205,16 @@ section.reveal-active {
 
 .section-title {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 2rem;
   text-align: center;
-  font-family: var(--font-secondary);
+  font-family: var(--font-main);
   color: var(--text-primary);
+  letter-spacing: -0.025em;
 }
 
 .section-title span {
   color: var(--primary-color);
-  text-shadow: 0 0 18px rgba(157, 178, 191, 0.4);
 }
 
 /* ── Section Headers ── */
@@ -221,27 +225,27 @@ section.reveal-active {
 }
 
 .section-label {
-  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-family: var(--font-mono);
+  font-size: clamp(0.74rem, 1.6vw, 0.8rem);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--primary-color);
-  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text-secondary);
+  font-weight: 400;
   margin-bottom: 0.5rem;
   display: block;
-  text-shadow: 0 0 10px rgba(157, 178, 191, 0.25);
 }
 
 .section-main-title {
-  font-size: clamp(1.8rem, 5.5vw, 2.8rem);
-  font-weight: 800;
-  font-family: var(--font-secondary);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 500;
+  font-family: var(--font-main);
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
 .section-main-title span {
   color: var(--accent-color);
-  text-shadow: 0 0 18px rgba(221, 230, 237, 0.4);
 }
 
 .section-description {

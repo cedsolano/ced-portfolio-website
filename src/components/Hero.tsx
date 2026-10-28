@@ -1,45 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
+const rotatingPhrases = [
+  'scalable web apps',
+  'verified systems',
+  'intuitive UI/UX',
+  'bug-free releases',
+  'smooth user flows',
+  'reliable software',
+];
+
 const Hero: React.FC = () => {
+  const [text, setText] = useState('');
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = rotatingPhrases[phraseIndex];
+    let timeoutDuration = isDeleting ? 45 : 85;
+
+    if (!isDeleting && text === currentPhrase) {
+      timeoutDuration = 2200;
+      const pauseTimer = setTimeout(() => setIsDeleting(true), timeoutDuration);
+      return () => clearTimeout(pauseTimer);
+    }
+
+    if (isDeleting && text === '') {
+      setIsDeleting(false);
+      setPhraseIndex((prev) => (prev + 1) % rotatingPhrases.length);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setText(
+        currentPhrase.substring(0, text.length + (isDeleting ? -1 : 1))
+      );
+    }, timeoutDuration);
+
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, phraseIndex]);
+
   return (
     <section className="hero" id="home">
-      {/* Animated smoke background */}
-      <div className="smoke-bg">
-        <div className="smoke smoke-1"></div>
-        <div className="smoke smoke-2"></div>
-        <div className="smoke smoke-3"></div>
-        <div className="smoke smoke-4"></div>
-      </div>
-
       <div className="hero-content container">
-        {/* Top Badge */}
-        <div className="hero-badge">
-          <span className="badge-dot"></span>
-          Open to Work
-        </div>
+        <p className="hero-eyebrow">
+          ASPIRING FULL STACK DEVELOPER &nbsp;&middot;&nbsp; QUALITY ASSURANCE
+        </p>
 
         <h1 className="hero-heading">
-          Hello, I'm <br /> Cedric Solano
+          <span className="hero-line">
+            I build{' '}
+            <span className="hero-highlight">
+              {text}
+              <span className="hero-cursor">|</span>
+            </span>
+          </span>
+          <span className="hero-line">that help teams ship faster.</span>
         </h1>
 
         <p className="hero-description">
-          A fourth-year BS Information Technology student at PUP Quezon City, eager to learn <br className="hidden-mobile" />
-          while building reliable systems and ensuring software quality.
+          Bachelor of Science in Information Technology graduate from PUP Quezon City,
+          dedicated to turning ideas into reliable, production-ready products.
         </p>
 
         <div className="hero-buttons">
-          <a href="#contact" className="btn btn-primary">Get Started Now</a>
-          <a href="#projects" className="btn btn-secondary">See Projects</a>
+          <a href="#projects" className="hero-btn hero-btn-primary">
+            See my work
+          </a>
+          <a href="#contact" className="hero-btn hero-btn-secondary">
+            Start a project
+          </a>
         </div>
-      </div>
-
-      <div className="hero-bottom-bar">
-        <span className="scroll-text">Scroll down</span>
-        <div className="mouse-icon">
-          <div className="mouse-wheel"></div>
-        </div>
-        <span className="scroll-text">to see projects</span>
       </div>
     </section>
   );

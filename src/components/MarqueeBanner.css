@@ -57,8 +57,9 @@
 .marquee-item {
   display: inline-flex;
   align-items: center;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.16);

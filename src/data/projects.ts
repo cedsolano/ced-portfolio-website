@@ -21,7 +21,7 @@ export const projectsData: Project[] = [
     role: 'Frontend Developer',
     description: 'A web-based management and booking system that digitizes court reservations, player development, membership tracking, and facility operations for a pickleball center. It provides real-time monitoring and role-based access for admins, coaches, staff, and customers to ensure smooth coordination and secure transactions.',
     image: '/pic/BPCRS.jpg',
-    link: 'https://github.com/bcharles4/pickleball_project',
+    link: 'https://pickleball-development.octaltech.net/',
     tech: [
       { name: 'React', icon: 'devicon-react-original' },
       { name: 'Vite', icon: 'devicon-vite-original' },
@@ -37,80 +37,6 @@ export const projectsData: Project[] = [
       'Player development and membership tracking.',
       'Role-based access control for admins, coaches, and customers.',
       'Real-time monitoring and secure transactions.'
-    ]
-  },
-  {
-    id: 8,
-    title: 'Pawfolio - Pet Health Management Platform',
-    role: 'Frontend Developer and Document Analyst',
-    description: 'A digital platform designed to help pet owners, shelters, adoption centers, and caregivers manage and access pets’ medical records efficiently. It centralizes vaccination histories, treatment records, and microchip information to ensure timely and coordinated care.',
-    image: '/pic/PAWFOLIO.jpg',
-    link: 'https://pawfolio-five.vercel.app/',
-    tech: [
-      { name: 'React', icon: 'devicon-react-original' },
-      { name: 'Node.js', icon: 'devicon-nodejs-plain' },
-      { name: 'Express.js', icon: 'devicon-express-original' },
-      { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
-    ],
-    features: [
-      'Centralized pet medical records.',
-      'Vaccination history and treatment tracking.',
-      'Microchip information management.',
-      'Coordination between pet owners and caregivers.'
-    ]
-  },
-  {
-    id: 1,
-    title: 'BorrowEase - Library Management System',
-    role: 'Full Stack Developer',
-    description: 'A digital library management system developed to enable efficient book borrowing, tracking, and record management, helping maintain organized library transactions and borrower histories.',
-    image: '/pic/borrow.PNG',
-    link: 'https://github.com/cedsolano/LIBRARY-MANAGEMENT-SYSTEM',
-    tech: [
-      { name: 'Python', icon: 'devicon-python-plain' },
-      { name: 'Tkinter', icon: '' },
-      { name: 'SQLite3', icon: 'devicon-sqlite-plain' },
-    ],
-    features: [
-      'Efficient book borrowing and tracking.',
-      'Organized library transactions management.',
-      'Borrower history and record keeping.',
-      'User-friendly desktop interface.'
-    ]
-  },
-  {
-    id: 2,
-    title: 'TuklasPH Mobile App',
-    role: 'Full Stack Developer',
-    description: 'Designed to promote Filipino wisdom and accessible learning. The platform provides digital access to reading materials and supports an engaging user experience aligned with Sustainable Development Goal 4 (Quality Education).',
-    image: '/pic/TuklasPH.jpg',
-    link: 'https://app.flutterflow.io/share/tuklasph-uttwd6?page=onboardingPage',
-    tech: [
-      { name: 'FlutterFlow', icon: '' },
-      { name: 'Firebase', icon: 'devicon-firebase-plain' },
-    ],
-    features: [
-      'Digital access to Filipino reading materials.',
-      'Engaging user experience for accessible learning.',
-      'Aligned with Sustainable Development Goal 4.',
-      'Mobile-first cross-platform accessibility.'
-    ]
-  },
-  {
-    id: 3,
-    title: 'Convert MO’TO – Finance Management System',
-    role: 'FrontEnd Developer, Documentation Analyst',
-    description: 'A finance management and currency conversion system featuring real-time exchange rate integration, designed to support accurate currency conversion and basic financial tracking.',
-    image: '/pic/finance-management.png',
-    link: 'https://github.com/HydroX04/exchange-system',
-    tech: [
-      { name: 'SQLite', icon: 'devicon-sqlite-plain' },
-    ],
-    features: [
-      'Real-time exchange rate integration.',
-      'Accurate currency conversion.',
-      'Basic financial tracking capabilities.',
-      'Intuitive user interface for fast conversions.'
     ]
   },
   {
@@ -131,6 +57,26 @@ export const projectsData: Project[] = [
       'Integration with Point of Sale (POS) system.',
       'Inventory Management System (IMS) syncing.',
       'Accurate transaction and order management.'
+    ]
+  },
+  {
+    id: 8,
+    title: 'Pawfolio - Pet Health Management Platform',
+    role: 'Frontend Developer and Document Analyst',
+    description: 'A digital platform designed to help pet owners, shelters, adoption centers, and caregivers manage and access pets’ medical records efficiently. It centralizes vaccination histories, treatment records, and microchip information to ensure timely and coordinated care.',
+    image: '/pic/PAWFOLIO.jpg',
+    link: 'https://pawfolio-five.vercel.app/',
+    tech: [
+      { name: 'React', icon: 'devicon-react-original' },
+      { name: 'Node.js', icon: 'devicon-nodejs-plain' },
+      { name: 'Express.js', icon: 'devicon-express-original' },
+      { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
+    ],
+    features: [
+      'Centralized pet medical records.',
+      'Vaccination history and treatment tracking.',
+      'Microchip information management.',
+      'Coordination between pet owners and caregivers.'
     ]
   },
   {
@@ -172,6 +118,60 @@ export const projectsData: Project[] = [
       'Stock level management and alerts.',
       'Support for daily business transactions.',
       'User-friendly dashboard for store owners.'
+    ]
+  },
+  {
+    id: 3,
+    title: 'Convert MO’TO – Finance Management System',
+    role: 'FrontEnd Developer, Documentation Analyst',
+    description: 'A finance management and currency conversion system featuring real-time exchange rate integration, designed to support accurate currency conversion and basic financial tracking.',
+    image: '/pic/finance-management.png',
+    link: 'https://github.com/HydroX04/exchange-system',
+    tech: [
+      { name: 'SQLite', icon: 'devicon-sqlite-plain' },
+    ],
+    features: [
+      'Real-time exchange rate integration.',
+      'Accurate currency conversion.',
+      'Basic financial tracking capabilities.',
+      'Intuitive user interface for fast conversions.'
+    ]
+  },
+  {
+    id: 2,
+    title: 'TuklasPH Mobile App',
+    role: 'Full Stack Developer',
+    description: 'Designed to promote Filipino wisdom and accessible learning. The platform provides digital access to reading materials and supports an engaging user experience aligned with Sustainable Development Goal 4 (Quality Education).',
+    image: '/pic/TuklasPH.jpg',
+    link: 'https://app.flutterflow.io/share/tuklasph-uttwd6?page=onboardingPage',
+    tech: [
+      { name: 'FlutterFlow', icon: '' },
+      { name: 'Firebase', icon: 'devicon-firebase-plain' },
+    ],
+    features: [
+      'Digital access to Filipino reading materials.',
+      'Engaging user experience for accessible learning.',
+      'Aligned with Sustainable Development Goal 4.',
+      'Mobile-first cross-platform accessibility.'
+    ]
+  },
+  {
+    id: 1,
+    title: 'BorrowEase - Library Management System',
+    role: 'Full Stack Developer',
+    description: 'A digital library management system developed to enable efficient book borrowing, tracking, and record management, helping maintain organized library transactions and borrower histories.',
+    image: '/pic/borrow.PNG',
+    link: 'https://github.com/cedsolano/LIBRARY-MANAGEMENT-SYSTEM',
+    tech: [
+      { name: 'Python', icon: 'devicon-python-plain' },
+      { name: 'Tkinter', icon: '' },
+      { name: 'SQLite3', icon: 'devicon-sqlite-plain' },
+    ],
+    features: [
+      'Efficient book borrowing and tracking.',
+      'Organized library transactions management.',
+      'Borrower history and record keeping.',
+      'User-friendly desktop interface.'
     ]
   },
   {
